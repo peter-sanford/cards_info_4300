@@ -3,6 +3,11 @@ session_start();
 require 'vendor/autoload.php';
 include 'functions.php';
 
+if (!isset($_SESSION['card_array'], $_SESSION['deck_id'], $_SESSION['card_total'])) {
+    header("Location: drawtwo.php");
+    exit;
+}
+
 $client = new \GuzzleHttp\Client();
 $card_array = $_SESSION['card_array'];
 $deck_id = $_SESSION['deck_id'];
